@@ -8,6 +8,7 @@ for(p, QMAKE_LIBDIR_EGL) {
 }
 
 LIBS += $$QMAKE_LIBS_EGL
-
+INCLUDEPATH += /usr/include/interface /usr/include/interface/vcos/pthreads
+LIBS += -lEGL -lGLESv2 -lm -lbcm_host
 # Input
 SOURCES += main.cpp
