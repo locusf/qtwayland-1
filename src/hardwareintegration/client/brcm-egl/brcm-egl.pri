@@ -12,8 +12,8 @@ for(p, QMAKE_LIBDIR_EGL) {
 }
 
 LIBS += $$QMAKE_LIBS_EGL
-INCLUDEPATH += $$QMAKE_INCDIR_EGL
-
+INCLUDEPATH += $$QMAKE_INCDIR_EGL /usr/include/interface /usr/include/interface/vcos/pthreads
+LIBS += -lEGL -lGLESv2 -lm -lbcm_host
 SOURCES += $$PWD/qwaylandbrcmeglintegration.cpp \
            $$PWD/qwaylandbrcmglcontext.cpp \
            $$PWD/qwaylandbrcmeglwindow.cpp

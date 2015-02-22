@@ -3,7 +3,7 @@ load(qt_plugin)
 
 QT = compositor compositor-private core-private gui-private
 
-INCLUDEPATH += $$PWD
+INCLUDEPATH += $$PWD /usr/include/interface /usr/include/interface/vcos/pthreads
 
 !contains(QT_CONFIG, no-pkg-config) {
     CONFIG += link_pkgconfig
@@ -28,5 +28,6 @@ HEADERS += \
     $$PWD/brcmeglintegration.h \
     $$PWD/brcmbuffer.h
 
+LIBS += -lEGL -lGLESv2 -lm -lbcm_host 
 CONFIG += wayland-scanner
 WAYLANDSERVERSOURCES += $$PWD/../../../extensions/brcm.xml
