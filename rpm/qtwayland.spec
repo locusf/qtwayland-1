@@ -1,7 +1,6 @@
 %define _qtmodule_snapshot_version 0.0-git855.e5601d283c
-%define _qtwayland_variant wayland_egl
-Name:       qt5-qtwayland-%{_qtwayland_variant}
-Summary:    Qt Wayland compositor, %{_qtwayland_variant} variant
+Name:       qt5-qtwayland
+Summary:    Qt Wayland compositor, wayland_egl variant
 Version:    0.0git855.e5601d283c
 Release:    1%{?dist}
 Group:      Qt/Qt
@@ -16,12 +15,6 @@ BuildRequires:  pkgconfig(Qt5Quick) >= 5.2.1+git37
 BuildRequires:  pkgconfig(Qt5DBus) >= 5.2.1
 BuildRequires:  pkgconfig(wayland-server) >= 1.2.0
 BuildRequires:  pkgconfig(wayland-client) >= 1.2.0
-%if "%{_qtwayland_variant}" == "wayland_egl"
-BuildRequires:  pkgconfig(wayland-egl)
-%endif
-%if "%{_qtwayland_variant}" == "xcomposite_egl"
-BuildRequires:  pkgconfig(xcomposite)
-%endif
 
 BuildRequires:  qt5-qtgui-devel >= 5.2.1+git24
 Requires: qt5-qtgui >= 5.2.1+git24
@@ -106,24 +99,9 @@ rm -r %{buildroot}/%{_libdir}/qt5/plugins/wayland-decoration-client/libbradient.
 %{_libdir}/libQt5WaylandClient.so.5
 %{_libdir}/libQt5WaylandClient.so.5.*
 %{_libdir}/qt5/plugins/platforms/libqwayland-generic.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libdrm-egl-server.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration-server/libdrm-egl-server.so
-
-%if "%{_qtwayland_variant}" == "wayland_egl"
-%{_libdir}/qt5/plugins/platforms/libqwayland-egl.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libwayland-egl.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration-server/libwayland-egl.so
-%endif
-
-%if "%{_qtwayland_variant}" == "xcomposite_egl"
-%{_libdir}/qt5/plugins/platforms/libqwayland-xcomposite-egl.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libxcomposite-egl.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration-server/libxcomposite-egl.so
-%endif
-
-%if "%{_qtwayland_variant}" == "nogl"
-%{_libdir}/qt5/plugins/platforms/libqwayland-nogl.so
-%endif
+%{_libdir}/qt5/plugins/platforms/libqwayland-brcm-egl.so
+%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libbrcm-egl.so
+%{_libdir}/qt5/plugins/wayland-graphics-integration-server/libbrcm-egl.so
 
 %files devel
 %defattr(-,root,root,-)

@@ -98,6 +98,7 @@ public:
     ~QWaylandWindow();
 
     virtual WindowType windowType() const = 0;
+    virtual void *nativeResource(const QByteArray &) { return Q_NULLPTR; }
     WId winId() const;
     void setVisible(bool visible);
     void setParent(const QPlatformWindow *parent);
