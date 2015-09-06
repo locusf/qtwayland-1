@@ -61,6 +61,7 @@ public:
     QWaylandBrcmEglWindow(QWindow *window);
     ~QWaylandBrcmEglWindow();
     WindowType windowType() const;
+    void *nativeResource(const QByteArray &resourceString) Q_DECL_OVERRIDE;
     void setGeometry(const QRect &rect);
 
     QSurfaceFormat format() const;

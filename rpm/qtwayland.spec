@@ -1,5 +1,5 @@
 %define _qtmodule_snapshot_version 0.0-git855.e5601d283c
-Name:       qt5-qtwayland-wayland_egl
+Name:       qt5-qtwayland
 Summary:    Qt Wayland compositor, wayland_egl variant
 Version:    0.0git855.e5601d283c
 Release:    1%{?dist}
@@ -101,6 +101,9 @@ rm -r %{buildroot}/%{_libdir}/qt5/plugins/wayland-decoration-client/libbradient.
 %{_libdir}/libQt5WaylandClient.so.5
 %{_libdir}/libQt5WaylandClient.so.5.*
 %{_libdir}/qt5/plugins/platforms/libqwayland-generic.so
+%{_libdir}/qt5/plugins/platforms/libqwayland-brcm-egl.so
+%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libbrcm-egl.so
+%{_libdir}/qt5/plugins/wayland-graphics-integration-server/libbrcm-egl.so
 
 %if "%{name}" == "qt5-qtwayland-wayland_egl"
 %{_libdir}/qt5/plugins/platforms/libqwayland-egl.so
