@@ -11,3 +11,6 @@ SOURCES += \
     main.cpp
 
 include(../../../../hardwareintegration/compositor/brcm-egl/brcm-egl.pri)
+
+INCLUDEPATH += /usr/include/interface /usr/include/interface/vcos/pthreads
+LIBS += -lEGL -lGLESv2 -lm -lbcm_host

@@ -136,6 +136,15 @@ QWaylandBrcmEglWindow::QWaylandBrcmEglWindow(QWindow *window)
 {
 }
 
+void *QWaylandBrcmEglWindow::nativeResource(const QByteArray &resourceString)
+{
+    QByteArray lowerCaseResource = resourceString.toLower();
+    qWarning("Resource name %s",lowerCaseResource.constData());
+    if (lowerCaseResource == "wl_egl_window") {
+        return m_waylandEglWindow;
+    }
+    return Q_NULLPTR;
+}
 QWaylandBrcmEglWindow::~QWaylandBrcmEglWindow()
 {
     destroyEglSurfaces();
